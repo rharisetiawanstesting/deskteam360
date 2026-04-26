@@ -45,3 +45,8 @@ body {
     @apply grid h-7 w-7 shrink-0 place-items-center rounded-full bg-white/25 text-white;
   }
 }
+
+.hero-video {
+  -webkit-mask-image: radial-gradient(circle at center, black 50%, transparent 78%);
+  mask-image: radial-gradient(circle at center, black 50%, transparent 78%);
+}
