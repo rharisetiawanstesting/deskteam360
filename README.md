@@ -1,6 +1,11 @@
 # DeskTeam360 Landing Page
 
+[![Deployed on Vercel](https://img.shields.io/badge/deployed%20on-Vercel-black?logo=vercel)](https://deskteam360-alpha.vercel.app)
+
 Next.js 14 (App Router) + Tailwind CSS + lucide-react landing page for DeskTeam360.
+
+🚀 **Live:** https://deskteam360-alpha.vercel.app
+📦 **Auto-deploy:** every push to `main` is automatically built and deployed to Vercel.
 
 ## Run it
 
