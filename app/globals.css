@@ -29,6 +29,9 @@ body {
   .btn-accent {
     @apply inline-flex items-center justify-center rounded-full bg-brand-accent px-5 py-3 text-sm font-semibold text-white transition hover:bg-orange-600;
   }
+  .btn-pink {
+    @apply inline-flex items-center justify-center gap-3 rounded-full bg-brand-pink px-6 py-3.5 text-sm font-semibold text-white transition hover:brightness-110;
+  }
   .btn-ghost {
     @apply inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-brand transition hover:border-slate-300;
   }
@@ -37,5 +40,8 @@ body {
   }
   .eyebrow {
     @apply text-xs font-semibold uppercase tracking-[0.18em] text-brand-accent;
+  }
+  .cta-icon {
+    @apply grid h-7 w-7 shrink-0 place-items-center rounded-full bg-white/25 text-white;
   }
 }
