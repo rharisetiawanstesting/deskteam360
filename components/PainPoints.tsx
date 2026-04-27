@@ -3,54 +3,80 @@ import Image from "next/image";
 type Pain = {
   title: string;
   body: string;
-  bg: string;
-  fade: string;
-  border: string;
-  photo: string;
-  yShift: string;
+  cardClass: string;
+  imageWrapClass: string;
+  smallImageClass: string;
+  popupImageClass: string;
+  smallImage: string;
+  popupImage: string;
 };
 
 const PAINS: Pain[] = [
   {
     title: "The Freelancer Lottery",
-    body: "You ship a brief and cross your fingers. Some freelancers crush it, most ghost, disappear, or deliver work you have to redo yourself.",
-    bg: "bg-purple-500",
-    fade: "from-purple-500",
-    border: "ring-purple-200",
-    photo: "https://placehold.co/600x800/8B5CF6/FFFFFF?text=Photo",
-    yShift: "md:translate-y-6",
+    body: "Every new project means a new search. New portfolios. New \"getting to know your brand\" conversations. New prayers that this one won't ghost you mid-project. And the cost keeps climbing - $75, $100, $150 an hour - with zero guarantee they'll be available next month.",
+    cardClass: "bg-[#7857FF] md:mt-24",
+    imageWrapClass: "-right-6 bottom-0 h-[68%] w-[60%] sm:-right-8 sm:h-[72%] sm:w-[58%] lg:-right-10 lg:w-[54%]",
+    smallImageClass: "object-contain object-bottom-right opacity-100 scale-100 group-hover:opacity-0 group-hover:scale-90",
+    popupImageClass: "object-cover object-[72%_bottom] opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100",
+    smallImage: "/pain/freelancer-small.webp",
+    popupImage: "/pain/freelancer-popup.webp",
   },
   {
     title: "Death by a Thousand Invoices",
-    body: "A designer here, a copywriter there, a developer across the world — suddenly you’re a bookkeeper, not an operator.",
-    bg: "bg-rose-500",
-    fade: "from-rose-500",
-    border: "ring-rose-200",
-    photo: "https://placehold.co/600x800/F43F5E/FFFFFF?text=Photo",
-    yShift: "md:-translate-y-6",
+    body: "Your graphic designer bills hourly. Your web developer charges \"project management\" on top of dev time. Your video editor has a revision surcharge. Every task feels like opening your wallet and hoping for the best.",
+    cardClass: "bg-[#F16FA8] md:mt-0",
+    imageWrapClass: "-right-8 bottom-0 h-[70%] w-[62%] sm:-right-10 sm:h-[74%] sm:w-[60%] lg:-right-12 lg:w-[56%]",
+    smallImageClass: "object-contain object-bottom-right opacity-100 scale-100 group-hover:opacity-0 group-hover:scale-90",
+    popupImageClass: "object-cover object-[70%_bottom] opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100",
+    smallImage: "/pain/invoices-small.webp",
+    popupImage: "/pain/invoices-popup.webp",
   },
   {
-    title: "Vendors, Nobody Talking",
-    body: "Your video editor doesn’t talk to your funnel builder. Your funnel builder doesn’t talk to your designer. You’re the middleman — again.",
-    bg: "bg-orange-500",
-    fade: "from-orange-500",
-    border: "ring-orange-200",
-    photo: "https://placehold.co/600x800/F97316/FFFFFF?text=Photo",
-    yShift: "md:translate-y-6",
+    title: "Five Vendors, Nobody Talking",
+    body: "One person handles graphics. Another does web updates. A third builds funnels. Someone else edits video. They've never spoken to each other. And you're the human glue - the project manager you never signed up to be.",
+    cardClass: "bg-[#FF8855] md:mt-24",
+    imageWrapClass: "-right-6 bottom-0 h-[68%] w-[60%] sm:-right-8 sm:h-[72%] sm:w-[58%] lg:-right-10 lg:w-[54%]",
+    smallImageClass: "object-contain object-bottom-right opacity-100 scale-100 group-hover:opacity-0 group-hover:scale-90",
+    popupImageClass: "object-cover object-[72%_bottom] opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100",
+    smallImage: "/pain/vendors-small.webp",
+    popupImage: "/pain/vendors-popup.webp",
   },
 ];
 
 export default function PainPoints() {
   return (
-    <section className="relative overflow-hidden bg-white py-16 sm:py-20">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -left-20 top-24 h-72 w-72 rounded-full bg-gradient-to-br from-purple-200/60 to-pink-200/60 blur-3xl"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -right-20 top-40 h-72 w-72 rounded-full bg-gradient-to-br from-cyan-200/60 to-blue-200/60 blur-3xl"
-      />
+    <section className="relative overflow-hidden bg-white py-16 sm:py-20 lg:py-24">
+      <div className="pointer-events-none absolute inset-x-0 top-24 hidden md:block">
+        <Image
+          src="/decor/blob-horizontal.webp"
+          alt=""
+          width={1551}
+          height={660}
+          className="absolute left-[4%] top-0 w-[30rem] opacity-80 lg:w-[36rem]"
+        />
+        <Image
+          src="/decor/blob-vertical.webp"
+          alt=""
+          width={1115}
+          height={1835}
+          className="absolute right-[5%] top-14 w-[10rem] opacity-80 lg:w-[12rem]"
+        />
+        <Image
+          src="/decor/code-icons-large.webp"
+          alt=""
+          width={738}
+          height={586}
+          className="absolute left-[8%] top-10 w-44 opacity-95 lg:w-52"
+        />
+        <Image
+          src="/decor/code-icons-small.webp"
+          alt=""
+          width={250}
+          height={168}
+          className="absolute right-[16%] top-52 w-20 opacity-95 lg:w-24"
+        />
+      </div>
 
       <div className="container-px relative">
         <div className="mx-auto max-w-4xl text-center">
@@ -78,9 +104,9 @@ export default function PainPoints() {
           </video>
         </div>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-3 md:gap-5 lg:gap-7">
-          {PAINS.map((p) => (
-            <PainCard key={p.title} pain={p} />
+        <div className="mx-auto mt-14 grid max-w-[1360px] gap-6 md:grid-cols-3 md:items-start md:gap-6 lg:gap-8">
+          {PAINS.map((pain) => (
+            <PainCard key={pain.title} pain={pain} />
           ))}
         </div>
       </div>
@@ -91,28 +117,35 @@ export default function PainPoints() {
 function PainCard({ pain }: { pain: Pain }) {
   return (
     <article
-      className={`group relative aspect-[4/5] overflow-hidden rounded-3xl shadow-soft ring-4 ${pain.border} transition-transform duration-300 ease-out hover:-translate-y-1 hover:scale-[1.02] ${pain.yShift}`}
+      className={`group relative min-h-[560px] overflow-hidden rounded-[40px] px-7 pb-7 pt-8 text-white shadow-[0_30px_80px_rgba(15,23,42,0.12)] transition-all duration-500 ease-out hover:z-10 hover:-translate-y-3 hover:scale-[1.045] sm:min-h-[620px] sm:px-8 sm:pt-9 ${pain.cardClass}`}
     >
-      <div className={`absolute inset-0 ${pain.bg}`} />
-      <div className="absolute inset-y-0 right-0 w-1/2">
-        <Image
-          src={pain.photo}
-          alt=""
-          fill
-          sizes="(min-width: 768px) 25vw, 50vw"
-          className="object-cover opacity-90 mix-blend-luminosity"
-          unoptimized
-        />
-        <div
-          aria-hidden
-          className={`absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r ${pain.fade} to-transparent`}
-        />
-      </div>
-      <div className="relative flex h-full flex-col justify-between p-6 sm:p-7">
-        <h3 className="max-w-[55%] text-2xl font-extrabold leading-tight text-white sm:text-3xl">
+      <div className="relative z-10 max-w-[46%] sm:max-w-[45%]">
+        <h3 className="text-[2rem] font-black leading-[0.95] tracking-[-0.03em] sm:text-[2.35rem] lg:text-[2.7rem]">
           {pain.title}
         </h3>
-        <p className="max-w-[55%] text-sm leading-relaxed text-white/95">{pain.body}</p>
+      </div>
+
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 top-[34%] bg-gradient-to-t from-black/10 via-transparent to-transparent" />
+
+      <div className={`pointer-events-none absolute transition-all duration-500 ease-out ${pain.imageWrapClass}`}>
+        <Image
+          src={pain.smallImage}
+          alt=""
+          fill
+          sizes="(min-width: 1024px) 22vw, (min-width: 768px) 30vw, 70vw"
+          className={`transition-all duration-500 ease-out ${pain.smallImageClass}`}
+        />
+        <Image
+          src={pain.popupImage}
+          alt=""
+          fill
+          sizes="(min-width: 1024px) 26vw, (min-width: 768px) 34vw, 78vw"
+          className={`transition-all duration-500 ease-out ${pain.popupImageClass}`}
+        />
+      </div>
+
+      <div className="relative z-10 mt-[17.5rem] max-w-[48%] sm:mt-[19rem] sm:max-w-[46%] lg:mt-[21rem]">
+        <p className="text-sm leading-[1.65] text-white/92 sm:text-[15px]">{pain.body}</p>
       </div>
     </article>
   );
