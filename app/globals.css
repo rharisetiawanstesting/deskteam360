@@ -21,7 +21,7 @@ body {
 
 @layer components {
   .container-px {
-    @apply mx-auto max-w-7xl px-6 lg:px-8;
+    @apply mx-auto w-full max-w-[1440px] px-6 lg:px-12;
   }
   .btn-primary {
     @apply inline-flex items-center justify-center rounded-full bg-brand px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800;

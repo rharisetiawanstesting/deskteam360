@@ -5,7 +5,6 @@ type Stat = {
   node?: React.ReactNode;
   label: string;
   sub?: string;
-  highlight?: boolean;
 };
 
 const STATS: Stat[] = [
@@ -28,7 +27,6 @@ const STATS: Stat[] = [
       />
     ),
     label: "Clients\nServed",
-    highlight: true,
   },
   {
     node: (
@@ -53,9 +51,9 @@ export default function Hero() {
 
       <div className="container-px grid items-center gap-10 pb-12 pt-12 lg:grid-cols-12 lg:gap-6 lg:pb-24 lg:pt-16">
         <div className="lg:col-span-6">
-          <h1 className="font-black tracking-[-0.02em] text-white text-[3.5rem] leading-[0.95] sm:text-[4.5rem] lg:text-[5rem] xl:text-[6rem] 2xl:text-[6.75rem]">
-            <span className="block">Stop Outsourcing.</span>
-            <span className="block">Start Insourcing.</span>
+          <h1 className="font-black tracking-[-0.02em] text-white leading-[0.98] text-[clamp(2rem,4.4vw,5.25rem)]">
+            <span className="block whitespace-nowrap">Stop Outsourcing.</span>
+            <span className="block whitespace-nowrap">Start Insourcing.</span>
           </h1>
 
           <p className="mt-8 max-w-xl text-base leading-relaxed text-white/75 sm:text-lg">
@@ -85,7 +83,7 @@ export default function Hero() {
         </div>
 
         <div className="relative lg:col-span-6">
-          <div className="relative mx-auto aspect-square w-full max-w-2xl">
+          <div className="relative mx-auto aspect-square w-full max-w-2xl animate-hero-float motion-reduce:animate-none">
             <video
               className="hero-video h-full w-full object-contain"
               autoPlay
@@ -122,17 +120,12 @@ function StatCell({
   node,
   label,
   sub,
-  highlight,
   divider,
 }: Stat & { divider?: boolean }) {
   return (
     <div
-      className={`group relative flex cursor-pointer items-center gap-3 px-5 py-7 transition-transform duration-300 ease-out hover:-translate-y-1 hover:scale-[1.06] hover:z-20 sm:gap-5 sm:px-6 ${
-        divider && !highlight ? "md:border-l md:border-white/10" : ""
-      } ${
-        highlight
-          ? "z-10 -my-2 -mx-1 rounded-2xl bg-brand-navy ring-2 ring-brand-cyan shadow-glow"
-          : "rounded-2xl"
+      className={`group relative flex cursor-pointer items-center gap-3 rounded-2xl px-5 py-7 ring-2 ring-transparent transition-all duration-300 ease-out hover:-my-2 hover:-mx-1 hover:z-20 hover:scale-[1.08] hover:bg-brand-navy hover:ring-brand-cyan hover:shadow-glow sm:gap-5 sm:px-6 ${
+        divider ? "md:border-l md:border-white/10 md:hover:border-transparent" : ""
       }`}
     >
       {node}

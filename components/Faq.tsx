@@ -1,30 +1,31 @@
+import Image from "next/image";
 import FaqAccordion, { FaqItem } from "./FaqAccordion";
 
 const FAQS: FaqItem[] = [
   {
     question: "What exactly can I send you?",
     answer:
-      "Anything in our service list — design, dev, video, email, automation, CRM work, and more. If it’s in our scope, just send it. If it’s borderline, we’ll tell you up front.",
+      "Anything in our wheelhouse - AI agents, graphic design, web design and development, video editing, email campaigns, funnel builds, CRM setup, website maintenance, automation. If it's marketing or tech work, we probably do it.",
   },
   {
     question: "How is this different from hiring a freelancer?",
     answer:
-      "Freelancers disappear, cost more than quoted, and rarely learn your brand. We’re one in-house team that stays with you month after month, so output compounds instead of resetting.",
+      "Freelancers disappear, cost more than quoted, and rarely learn your brand. We're one in-house team that stays with you month after month, so output compounds instead of resetting.",
   },
   {
     question: "How fast do things get done?",
     answer:
-      "Most tasks turn around within 24 hours on the Marketer and Agency plans. Bigger scopes get scoped and scheduled same-day by your US-based account manager.",
+      "Most tasks turn around within 1-3 business days on the Marketer and Agency plans. Bigger scopes get scoped and scheduled same-day by your US-based account manager.",
   },
   {
-    question: "What if the work isn’t what I wanted?",
+    question: "What if the work isn't what I wanted?",
     answer:
-      "Revisions are unlimited inside your plan. We iterate until it’s right — that’s what keeps us different from one-and-done vendors.",
+      "Revisions are unlimited inside your plan. We iterate until it's right - that's what keeps us different from one-and-done vendors.",
   },
   {
     question: "Can agencies white-label this?",
     answer:
-      "Yes. The Agency plan is built for white-label production. Your clients never see our brand — you get the credit, we get the work done.",
+      "Yes. The Agency plan is built for white-label production. Your clients never see our brand - you get the credit, we get the work done.",
   },
   {
     question: "Is there a minimum commitment?",
@@ -35,15 +36,46 @@ const FAQS: FaqItem[] = [
 
 export default function Faq() {
   return (
-    <section id="faq" className="bg-white py-20 sm:py-28">
-      <div className="container-px">
-        <div className="mx-auto max-w-3xl text-center">
-          <span className="eyebrow">FAQ</span>
-          <h2 className="section-title mt-4">Got Questions? Good.</h2>
-        </div>
+    <section
+      id="faq"
+      className="relative overflow-hidden bg-gradient-to-b from-[#0B1A3A] via-[#1B1448] to-[#0B1A3A] py-20 sm:py-24 lg:py-28"
+    >
+      <div className="container-px relative">
+        <div className="grid items-start gap-10 lg:grid-cols-[1fr_1.2fr] lg:gap-16">
+          {/* Left: 3D illustrations stacked */}
+          <div className="relative mx-auto h-[520px] w-full max-w-[460px] sm:h-[580px] lg:h-[640px]">
+            <Image
+              src="/faq/code-monitor.png"
+              alt=""
+              width={668}
+              height={612}
+              className="absolute left-[8%] top-[2%] z-10 w-[68%] drop-shadow-[0_18px_30px_rgba(0,0,0,0.4)]"
+            />
+            <Image
+              src="/faq/design-tablet.png"
+              alt=""
+              width={836}
+              height={780}
+              className="absolute left-[2%] top-[36%] z-20 w-[78%] drop-shadow-[0_18px_30px_rgba(0,0,0,0.4)]"
+            />
+            <Image
+              src="/faq/video-edit.png"
+              alt=""
+              width={668}
+              height={788}
+              className="absolute right-[-4%] bottom-[2%] z-30 w-[58%] drop-shadow-[0_18px_30px_rgba(0,0,0,0.4)]"
+            />
+          </div>
 
-        <div className="mx-auto mt-12 max-w-3xl">
-          <FaqAccordion items={FAQS} />
+          {/* Right: heading + FAQ accordion */}
+          <div>
+            <h2 className="text-4xl font-black tracking-tight text-white sm:text-5xl lg:text-[3.25rem] lg:leading-[1.05]">
+              Got Questions? <span className="text-brand-pink">Good</span>
+            </h2>
+            <div className="mt-10">
+              <FaqAccordion items={FAQS} />
+            </div>
+          </div>
         </div>
       </div>
     </section>

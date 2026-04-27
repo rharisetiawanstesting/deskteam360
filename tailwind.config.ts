@@ -30,6 +30,20 @@ const config: Config = {
           "radial-gradient(120% 70% at 50% 0%, #1B2554 0%, #0B1538 60%, #060B22 100%)",
         "logo-gradient": "linear-gradient(135deg, #F97316 0%, #EC2179 100%)",
       },
+      keyframes: {
+        "hero-float": {
+          "0%, 100%": { transform: "translate3d(0,-12px,0)" },
+          "50%": { transform: "translate3d(0,12px,0)" },
+        },
+        marquee: {
+          from: { transform: "translate3d(0,0,0)" },
+          to: { transform: "translate3d(-50%,0,0)" },
+        },
+      },
+      animation: {
+        "hero-float": "hero-float 6s ease-in-out infinite",
+        marquee: "marquee 28s linear infinite",
+      },
     },
   },
   plugins: [],
