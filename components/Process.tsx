@@ -49,45 +49,45 @@ export default function Process() {
           </h2>
         </div>
 
-        <div className="mt-14 grid items-center gap-10 lg:grid-cols-2 lg:gap-12">
-          {/* Left: woman + ribbon flames with icons */}
-          <div className="relative mx-auto aspect-square w-full max-w-[560px]">
-            {/* Woman illustration - sitting on the floor, lower-left */}
-            <div className="absolute left-[-2%] top-1/2 z-10 w-[44%] -translate-y-1/2">
-              <Image
-                src="/process/woman-laptop.png"
-                alt="Designer working on laptop"
-                width={826}
-                height={802}
-                className="h-auto w-full drop-shadow-[0_20px_30px_rgba(0,0,0,0.35)]"
-                priority
-              />
-            </div>
-
-            {/* Purple ribbon - top center, lightbulb */}
+        <div className="mt-14 grid items-center gap-12 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
+          {/* Left: ribbon constellation around centered woman illustration */}
+          <div className="relative mx-auto h-[560px] w-full max-w-[600px] sm:h-[640px]">
+            {/* Purple ribbon - top, slightly right of center */}
             <Image
               src="/process/ribbon-purple-bulb.png"
               alt=""
               width={857}
               height={822}
-              className="absolute right-[8%] top-[-2%] z-20 w-[58%]"
+              className="absolute left-[28%] top-[2%] z-10 w-[46%] drop-shadow-[0_18px_30px_rgba(126,91,255,0.25)]"
             />
-            {/* Orange ribbon - middle right, gears */}
+            {/* Orange ribbon - middle right */}
             <Image
               src="/process/ribbon-orange-gears.png"
               alt=""
               width={682}
               height={989}
-              className="absolute right-[-2%] top-[26%] z-20 w-[44%]"
+              className="absolute right-[2%] top-[34%] z-10 w-[40%] drop-shadow-[0_18px_30px_rgba(255,106,61,0.25)]"
             />
-            {/* Pink ribbon - bottom center, calendar */}
+            {/* Pink ribbon - bottom, slightly left of center */}
             <Image
               src="/process/ribbon-pink-calendar.png"
               alt=""
               width={857}
               height={783}
-              className="absolute bottom-[-4%] left-[18%] z-20 w-[58%]"
+              className="absolute bottom-[2%] left-[24%] z-10 w-[46%] drop-shadow-[0_18px_30px_rgba(236,33,121,0.25)]"
             />
+
+            {/* Woman illustration - centered focal point on the left */}
+            <div className="absolute left-[-2%] top-1/2 z-20 w-[40%] -translate-y-1/2">
+              <Image
+                src="/process/woman-laptop.png"
+                alt="Designer working on laptop"
+                width={826}
+                height={802}
+                className="h-auto w-full drop-shadow-[0_22px_36px_rgba(0,0,0,0.45)]"
+                priority
+              />
+            </div>
           </div>
 
           {/* Right: numbered steps */}
