@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Reveal from "./Reveal";
 
 type Pain = {
   title: string;
@@ -87,7 +88,7 @@ export default function PainPoints() {
       </div>
 
       <div className="container-px relative">
-        <div className="mx-auto max-w-4xl text-center">
+        <Reveal className="mx-auto max-w-4xl text-center">
           <h2 className="text-3xl font-extrabold tracking-tight text-brand-navy sm:text-4xl lg:text-[3.25rem] lg:leading-[1.05]">
             You <span className="text-brand-pink">Didn&apos;t</span> Start a Business
             <br className="hidden sm:block" /> to Chase Freelancers
@@ -96,7 +97,7 @@ export default function PainPoints() {
             Somewhere between managing vendors, chasing revisions, and watching invoices
             pile up - you stopped doing the work that actually grows your company.
           </p>
-        </div>
+        </Reveal>
 
         <div className="relative mx-auto mt-8 w-full max-w-[1200px]">
           <video

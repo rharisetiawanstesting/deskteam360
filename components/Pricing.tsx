@@ -1,5 +1,6 @@
 import Image from "next/image";
 import PricingCard, { PricingTier } from "./PricingCard";
+import Reveal from "./Reveal";
 
 const TIERS: PricingTier[] = [
   {
@@ -82,7 +83,7 @@ export default function Pricing() {
       </div>
 
       <div className="container-px relative">
-        <div className="mx-auto max-w-3xl text-center">
+        <Reveal className="mx-auto max-w-3xl text-center">
           <h2 className="text-3xl font-black tracking-tight text-brand sm:text-4xl lg:text-[3rem] lg:leading-[1.05]">
             One Team. <span className="text-brand-pink">Three Plans.</span>
             <br className="hidden sm:block" /> Pick Your Speed
@@ -92,11 +93,13 @@ export default function Pricing() {
             editing, marketing tech, team leader, and a dedicated account manager. The only
             difference is how many tasks run at once.
           </p>
-        </div>
+        </Reveal>
 
         <div className="mx-auto mt-14 grid max-w-6xl gap-6 lg:grid-cols-3 lg:gap-7">
-          {TIERS.map((tier) => (
-            <PricingCard key={tier.name} tier={tier} />
+          {TIERS.map((tier, i) => (
+            <Reveal key={tier.name} delay={i * 120}>
+              <PricingCard tier={tier} />
+            </Reveal>
           ))}
         </div>
       </div>

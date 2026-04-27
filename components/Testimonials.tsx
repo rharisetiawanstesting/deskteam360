@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import Reveal from "./Reveal";
 
 type Testimonial = {
   quote: string;
@@ -74,19 +75,21 @@ export default function Testimonials() {
       {/* Top section: heading + group photo */}
       <div className="container-px pt-20 pb-12 sm:pt-24 lg:pt-28">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
-          <h2 className="text-4xl font-black tracking-tight text-brand sm:text-5xl lg:text-[3.75rem] lg:leading-[1.05]">
-            They Tried Freelancers, Agencies, and Upwork First.{" "}
-            <span className="text-brand-pink">Then They Found Us</span>
-          </h2>
-          <div className="relative overflow-hidden rounded-[28px] ring-1 ring-pink-200/70 shadow-soft">
-            {/* Group photo placeholder - tinted gradient with team illustration */}
-            <div className="aspect-[16/10] w-full bg-gradient-to-br from-[#0B1A3A] via-[#1B1448] to-[#5B30D6]">
+          <Reveal>
+            <h2 className="text-4xl font-black tracking-tight text-brand sm:text-5xl lg:text-[3.75rem] lg:leading-[1.05]">
+              They Tried Freelancers, Agencies, and Upwork First.{" "}
+              <span className="text-brand-pink">Then They Found Us</span>
+            </h2>
+          </Reveal>
+          <div className="group relative overflow-hidden rounded-[28px] ring-1 ring-pink-200/70 shadow-soft">
+            <div className="aspect-[16/10] w-full bg-[#0B1A3A]">
               <Image
-                src="/values/team-illustration.webp"
+                src="/testimonials/team-group.png"
                 alt="DeskTeam360 in-house team"
-                width={1224}
-                height={1224}
-                className="h-full w-full object-cover opacity-90"
+                width={1662}
+                height={1192}
+                className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                priority
               />
             </div>
           </div>
