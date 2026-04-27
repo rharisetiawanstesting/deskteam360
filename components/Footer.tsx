@@ -1,84 +1,129 @@
-import { ArrowRight } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight, ArrowUp, Facebook, Instagram, Linkedin } from "lucide-react";
 
-const FOOTER_LINKS: { heading: string; links: { label: string; href: string }[] }[] = [
+const NAV_COLUMNS = [
+  {
+    heading: "Services",
+    links: [
+      { label: "Web Design", href: "#services" },
+      { label: "Graphic Design", href: "#services" },
+      { label: "Video Editing", href: "#services" },
+      { label: "Email & Funnels", href: "#services" },
+      { label: "CRM & Automation", href: "#services" },
+      { label: "Social Media", href: "#services" },
+      { label: "Website Maintenance", href: "#services" },
+    ],
+  },
   {
     heading: "Company",
     links: [
       { label: "About", href: "#" },
-      { label: "Services", href: "#services" },
-      { label: "Pricing", href: "#pricing" },
-      { label: "Contact", href: "#" },
-    ],
-  },
-  {
-    heading: "Resources",
-    links: [
-      { label: "FAQ", href: "#faq" },
-      { label: "Case Studies", href: "#" },
+      { label: "How it works", href: "#process" },
+      { label: "Showcase", href: "#" },
       { label: "Blog", href: "#" },
-      { label: "Careers", href: "#" },
-    ],
-  },
-  {
-    heading: "Legal",
-    links: [
-      { label: "Privacy", href: "#" },
-      { label: "Terms", href: "#" },
-      { label: "Cookies", href: "#" },
+      { label: "Case Studies", href: "#" },
+      { label: "Contact", href: "#" },
     ],
   },
 ];
 
 export default function Footer() {
   return (
-    <footer className="bg-brand text-white">
-      <div className="container-px py-20">
-        <div className="rounded-3xl bg-gradient-to-br from-brand-accent to-orange-500 p-10 sm:p-14">
-          <h2 className="max-w-3xl text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
-            You&apos;ve Got Better Things to Do Than Manage Freelancers.
-          </h2>
-          <p className="mt-4 max-w-xl text-white/90">
-            Hand it to one team. Ship faster. Sleep better. Start with a 30-day risk-free trial.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <a
-              href="#pricing"
-              className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-brand transition hover:bg-slate-100"
-            >
-              Get Started <ArrowRight className="ml-2 h-4 w-4" />
-            </a>
-            <a
-              href="#faq"
-              className="inline-flex items-center justify-center rounded-full border border-white/30 bg-transparent px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
-            >
-              Read the FAQ
-            </a>
+    <footer className="relative bg-[#0B1A3A] pt-12">
+      <div className="container-px">
+        {/* CTA card - white, overlapping the dark footer */}
+        <div className="relative overflow-hidden rounded-[32px] bg-white shadow-[0_30px_80px_-20px_rgba(0,0,0,0.45)] ring-1 ring-slate-200/70">
+          <div className="grid items-center gap-6 lg:grid-cols-[1.25fr_1fr]">
+            <div className="px-7 py-10 sm:px-10 sm:py-12 lg:px-12 lg:py-14">
+              <h2 className="text-3xl font-black tracking-tight text-brand sm:text-4xl lg:text-[2.75rem] lg:leading-[1.05]">
+                You&apos;ve Got <span className="text-brand-pink">Better Things</span> to Do
+                Than Manage Freelancers
+              </h2>
+              <p className="mt-5 max-w-md text-[14px] leading-relaxed text-slate-600 sm:text-[15px]">
+                400+ businesses already handed off the grunt work. Same team, same flat rate,
+                every month. Your turn.
+              </p>
+              <div className="mt-7 flex flex-wrap gap-3">
+                <a
+                  href="#pricing"
+                  className="group inline-flex items-center gap-2 rounded-full bg-brand-pink px-6 py-3 text-[13px] font-extrabold uppercase tracking-[0.14em] text-white shadow-md transition hover:scale-[1.03]"
+                >
+                  See Plans &amp; Pricing
+                  <span className="grid h-6 w-6 place-items-center rounded-full bg-white/25 transition group-hover:translate-x-0.5">
+                    <ArrowRight className="h-3.5 w-3.5" strokeWidth={3} />
+                  </span>
+                </a>
+                <a
+                  href="#"
+                  className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#FF6A3D] to-[#EC2179] px-6 py-3 text-[13px] font-extrabold uppercase tracking-[0.14em] text-white shadow-md transition hover:scale-[1.03]"
+                >
+                  Book a Free Strategy Call
+                  <span className="grid h-6 w-6 place-items-center rounded-full bg-white/25 transition group-hover:translate-x-0.5">
+                    <ArrowRight className="h-3.5 w-3.5" strokeWidth={3} />
+                  </span>
+                </a>
+              </div>
+              <p className="mt-5 text-[12px] italic text-slate-500">
+                30-day money-back guarantee &middot; No contracts &middot; Cancel anytime
+                &middot; Since 2018
+              </p>
+            </div>
+            <div className="relative h-full min-h-[280px] w-full sm:min-h-[340px] lg:min-h-[400px]">
+              <Image
+                src="/cta/man-laptop.png"
+                alt="Founder using a laptop"
+                fill
+                sizes="(min-width: 1024px) 480px, 100vw"
+                className="object-contain object-bottom"
+              />
+            </div>
           </div>
         </div>
 
-        <div className="mt-16 grid gap-10 md:grid-cols-4">
+        {/* Back-to-top floating button */}
+        <div className="relative mx-auto -mt-6 flex justify-end pr-6">
+          <a
+            href="#top"
+            aria-label="Back to top"
+            className="relative grid h-12 w-12 place-items-center rounded-full bg-brand-pink text-white shadow-lg ring-4 ring-[#0B1A3A] transition hover:scale-105"
+          >
+            <ArrowUp className="h-5 w-5" strokeWidth={3} />
+          </a>
+        </div>
+
+        {/* Footer body */}
+        <div className="mt-10 grid gap-10 pb-10 md:grid-cols-2 lg:grid-cols-[1.2fr_1fr_1fr_1fr] lg:gap-12">
+          {/* Brand */}
           <div>
             <div className="flex items-center gap-2">
-              <span className="grid h-8 w-8 place-items-center rounded-lg bg-white text-sm font-bold text-brand">
-                DT
+              <Image
+                src="/decor/dt360-mark.png"
+                alt=""
+                width={1148}
+                height={784}
+                className="h-7 w-auto"
+              />
+              <span className="text-xl font-extrabold tracking-tight text-white">
+                DeskTeam360
               </span>
-              <span className="text-base font-semibold tracking-tight">DeskTeam360</span>
             </div>
-            <p className="mt-4 max-w-xs text-sm text-white/60">
-              One team, every skill. Built for agencies, startups, and operators who want to stop
-              managing vendors and start shipping work.
+            <p className="mt-6 text-[22px] font-black leading-[1.1] text-white sm:text-2xl">
+              Stop Outsourcing
+              <br />
+              Start Insourcing
             </p>
           </div>
 
-          {FOOTER_LINKS.map((col) => (
+          {/* Nav columns */}
+          {NAV_COLUMNS.map((col) => (
             <div key={col.heading}>
-              <h4 className="text-sm font-semibold text-white">{col.heading}</h4>
-              <ul className="mt-4 space-y-2">
+              <h4 className="text-base font-bold text-white">{col.heading}</h4>
+              <ul className="mt-5 space-y-2.5">
                 {col.links.map((l) => (
                   <li key={l.label}>
                     <a
                       href={l.href}
-                      className="text-sm text-white/60 transition hover:text-white"
+                      className="text-[13px] text-white/65 transition hover:text-white"
                     >
                       {l.label}
                     </a>
@@ -87,11 +132,67 @@ export default function Footer() {
               </ul>
             </div>
           ))}
+
+          {/* Follow us */}
+          <div>
+            <h4 className="text-base font-bold text-white">Follow Us on</h4>
+            <div className="mt-5 flex items-center gap-3">
+              <a
+                href="#"
+                aria-label="Instagram"
+                className="grid h-9 w-9 place-items-center rounded-full bg-white/10 text-white ring-1 ring-white/15 transition hover:bg-white/20"
+              >
+                <Instagram className="h-4 w-4" />
+              </a>
+              <a
+                href="#"
+                aria-label="LinkedIn"
+                className="grid h-9 w-9 place-items-center rounded-full bg-white/10 text-white ring-1 ring-white/15 transition hover:bg-white/20"
+              >
+                <Linkedin className="h-4 w-4" />
+              </a>
+              <a
+                href="#"
+                aria-label="Facebook"
+                className="grid h-9 w-9 place-items-center rounded-full bg-white/10 text-white ring-1 ring-white/15 transition hover:bg-white/20"
+              >
+                <Facebook className="h-4 w-4" />
+              </a>
+            </div>
+            <ul className="mt-7 space-y-2.5">
+              <li>
+                <a
+                  href="#"
+                  className="text-[13px] text-white/65 transition hover:text-white"
+                >
+                  Privacy Policy
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  className="text-[13px] text-white/65 transition hover:text-white"
+                >
+                  Terms &amp; Conditions
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  className="text-[13px] text-white/65 transition hover:text-white"
+                >
+                  Affiliate Program
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-white/10 pt-6 text-xs text-white/50 sm:flex-row sm:items-center">
-          <p>&copy; {new Date().getFullYear()} DeskTeam360. All rights reserved.</p>
-          <p>Made for operators who’d rather be operating.</p>
+        {/* Copyright */}
+        <div className="border-t border-white/10 py-6">
+          <p className="text-center text-[12px] text-white/55">
+            {new Date().getFullYear()} DeskTeam360. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
