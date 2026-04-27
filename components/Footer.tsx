@@ -29,15 +29,15 @@ const NAV_COLUMNS = [
 
 export default function Footer() {
   return (
-    <footer className="relative bg-[#0B1A3A] pt-12">
-      <div className="container-px">
-        {/* CTA card - white, overlapping the dark footer */}
-        <div className="relative overflow-hidden rounded-[32px] bg-white shadow-[0_30px_80px_-20px_rgba(0,0,0,0.45)] ring-1 ring-slate-200/70">
-          <div className="grid items-center gap-6 lg:grid-cols-[1.25fr_1fr]">
-            <div className="px-7 py-10 sm:px-10 sm:py-12 lg:px-12 lg:py-14">
-              <h2 className="text-3xl font-black tracking-tight text-brand sm:text-4xl lg:text-[2.75rem] lg:leading-[1.05]">
+    <footer className="relative bg-[#0B1A3A]">
+      {/* CTA section - full-bleed white slab. Man image overflows above the top edge. */}
+      <div className="relative bg-white pt-14 sm:pt-16 lg:pt-16">
+        <div className="container-px">
+          <div className="relative grid items-center gap-6 lg:grid-cols-[1.4fr_1fr]">
+            <div className="pb-12 sm:pb-14 lg:pb-16 lg:pt-6">
+              <h2 className="text-3xl font-black tracking-tight text-brand sm:text-4xl lg:text-[3rem] lg:leading-[1.05]">
                 You&apos;ve Got <span className="text-brand-pink">Better Things</span> to Do
-                Than Manage Freelancers
+                <br className="hidden sm:block" /> Than Manage Freelancers
               </h2>
               <p className="mt-5 max-w-md text-[14px] leading-relaxed text-slate-600 sm:text-[15px]">
                 400+ businesses already handed off the grunt work. Same team, same flat rate,
@@ -68,28 +68,34 @@ export default function Footer() {
                 &middot; Since 2018
               </p>
             </div>
-            <div className="relative h-full min-h-[280px] w-full sm:min-h-[340px] lg:min-h-[400px]">
+
+            {/* Man with laptop - taller than the slab so head pokes above the section top */}
+            <div className="relative mx-auto -mt-20 h-[460px] w-full max-w-[520px] sm:-mt-24 sm:h-[520px] lg:absolute lg:right-0 lg:top-0 lg:mt-0 lg:h-[calc(100%+160px)] lg:w-[44%] lg:max-w-none lg:-translate-y-[160px]">
               <Image
                 src="/cta/man-laptop.png"
                 alt="Founder using a laptop"
                 fill
-                sizes="(min-width: 1024px) 480px, 100vw"
+                sizes="(min-width: 1024px) 520px, 100vw"
                 className="object-contain object-bottom"
+                priority
               />
             </div>
           </div>
         </div>
 
-        {/* Back-to-top floating button */}
-        <div className="relative mx-auto -mt-6 flex justify-end pr-6">
+        {/* Back-to-top floating button - sits on the seam between white slab and dark footer */}
+        <div className="container-px relative">
           <a
             href="#top"
             aria-label="Back to top"
-            className="relative grid h-12 w-12 place-items-center rounded-full bg-brand-pink text-white shadow-lg ring-4 ring-[#0B1A3A] transition hover:scale-105"
+            className="absolute right-6 -bottom-6 grid h-12 w-12 place-items-center rounded-full bg-brand-pink text-white shadow-lg ring-4 ring-[#0B1A3A] transition hover:scale-105 lg:right-10"
           >
             <ArrowUp className="h-5 w-5" strokeWidth={3} />
           </a>
         </div>
+      </div>
+
+      <div className="container-px pt-14">
 
         {/* Footer body */}
         <div className="mt-10 grid gap-10 pb-10 md:grid-cols-2 lg:grid-cols-[1.2fr_1fr_1fr_1fr] lg:gap-12">
