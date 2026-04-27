@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { Lightbulb, Settings, Calendar } from "lucide-react";
 
 const STEPS = [
   {
@@ -50,47 +49,45 @@ export default function Process() {
           </h2>
         </div>
 
-        <div className="mt-14 grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+        <div className="mt-14 grid items-center gap-10 lg:grid-cols-2 lg:gap-12">
           {/* Left: woman + ribbon flames with icons */}
-          <div className="relative mx-auto aspect-square w-full max-w-[520px]">
-            {/* Purple ribbon - top */}
-            <div
-              aria-hidden
-              className="absolute left-[28%] top-[2%] h-[34%] w-[58%] rounded-[60%_40%_55%_45%/55%_45%_60%_40%] bg-gradient-to-br from-[#A37BFF] via-[#7B4DFF] to-[#5B30D6] shadow-[0_20px_40px_-20px_rgba(123,77,255,0.6)]"
-            />
-            {/* Orange ribbon - middle right */}
-            <div
-              aria-hidden
-              className="absolute right-[2%] top-[34%] h-[36%] w-[58%] rounded-[55%_45%_60%_40%/50%_50%_55%_45%] bg-gradient-to-br from-[#FF8B3D] via-[#FF6A3D] to-[#E64C24] shadow-[0_20px_40px_-20px_rgba(255,106,61,0.55)]"
-            />
-            {/* Pink ribbon - bottom */}
-            <div
-              aria-hidden
-              className="absolute bottom-[2%] left-[18%] h-[34%] w-[58%] rounded-[55%_45%_55%_45%/45%_55%_45%_55%] bg-gradient-to-br from-[#FF6FB5] via-[#EC2179] to-[#B5005C] shadow-[0_20px_40px_-20px_rgba(236,33,121,0.55)]"
-            />
-
-            {/* Woman illustration - centered */}
-            <div className="absolute left-[2%] top-1/2 z-10 w-[58%] -translate-y-1/2">
+          <div className="relative mx-auto aspect-square w-full max-w-[560px]">
+            {/* Woman illustration - sitting on the floor, lower-left */}
+            <div className="absolute left-[-2%] top-1/2 z-10 w-[44%] -translate-y-1/2">
               <Image
                 src="/process/woman-laptop.png"
                 alt="Designer working on laptop"
                 width={826}
                 height={802}
-                className="h-auto w-full"
+                className="h-auto w-full drop-shadow-[0_20px_30px_rgba(0,0,0,0.35)]"
                 priority
               />
             </div>
 
-            {/* Icon circles on top of ribbons */}
-            <span className="absolute left-[44%] top-[6%] z-20 grid h-16 w-16 place-items-center rounded-full bg-white shadow-xl ring-1 ring-white/40 sm:h-20 sm:w-20">
-              <Lightbulb className="h-7 w-7 text-[#5B30D6] sm:h-9 sm:w-9" strokeWidth={2.2} />
-            </span>
-            <span className="absolute right-[14%] top-[42%] z-20 grid h-16 w-16 place-items-center rounded-full bg-white shadow-xl ring-1 ring-white/40 sm:h-20 sm:w-20">
-              <Settings className="h-7 w-7 text-[#E64C24] sm:h-9 sm:w-9" strokeWidth={2.2} />
-            </span>
-            <span className="absolute bottom-[6%] left-[34%] z-20 grid h-16 w-16 place-items-center rounded-full bg-white shadow-xl ring-1 ring-white/40 sm:h-20 sm:w-20">
-              <Calendar className="h-7 w-7 text-[#B5005C] sm:h-9 sm:w-9" strokeWidth={2.2} />
-            </span>
+            {/* Purple ribbon - top center, lightbulb */}
+            <Image
+              src="/process/ribbon-purple-bulb.png"
+              alt=""
+              width={857}
+              height={822}
+              className="absolute right-[8%] top-[-2%] z-20 w-[58%]"
+            />
+            {/* Orange ribbon - middle right, gears */}
+            <Image
+              src="/process/ribbon-orange-gears.png"
+              alt=""
+              width={682}
+              height={989}
+              className="absolute right-[-2%] top-[26%] z-20 w-[44%]"
+            />
+            {/* Pink ribbon - bottom center, calendar */}
+            <Image
+              src="/process/ribbon-pink-calendar.png"
+              alt=""
+              width={857}
+              height={783}
+              className="absolute bottom-[-4%] left-[18%] z-20 w-[58%]"
+            />
           </div>
 
           {/* Right: numbered steps */}

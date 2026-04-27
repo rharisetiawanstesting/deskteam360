@@ -1,80 +1,187 @@
-import Image from "next/image";
-import { Quote, Star } from "lucide-react";
+"use client";
 
-const TESTIMONIALS = [
+import Image from "next/image";
+import { useState } from "react";
+import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
+
+type Testimonial = {
+  quote: string;
+  name: string;
+  role: string;
+  avatar: string;
+};
+
+const TESTIMONIALS: Testimonial[] = [
   {
     quote:
-      "We replaced three agencies and a revolving door of freelancers with DeskTeam360. Our output doubled and the bill shrank.",
-    name: "Alex Romero",
-    role: "Founder, Northwind Digital",
-    avatar: "https://placehold.co/200x200/0F172A/FFFFFF?text=AR",
+      "Honestly, I was skeptical at first. Different team, faster turnaround, more done than I'd seen in years.",
+    name: "Sara Whitman",
+    role: "COO, Northwind Digital",
+    avatar: "/testimonials/female1.png",
   },
   {
     quote:
-      "I stopped project-managing vendors and started actually running my company again. That’s the real ROI.",
+      "I was spending 20+ hours a week managing designers and developers. Now I send a task and it gets done. DeskTeam360 gave me my time back - and my sanity.",
+    name: "Luke Dalien",
+    role: "Special Ed Resource",
+    avatar: "/testimonials/luke.png",
+  },
+  {
+    quote:
+      "Turnaround is wild. I brief at night and review polished work before my first coffee. They feel like an in-house team.",
     name: "Priya Shah",
     role: "CEO, Lumen Growth",
-    avatar: "https://placehold.co/200x200/F97316/FFFFFF?text=PS",
+    avatar: "/team/dhea.webp",
   },
   {
     quote:
-      "Turnaround time is wild. I brief at night, and I’m reviewing polished work before my first coffee.",
+      "Finally a partner who doesn't ghost us mid-sprint. Same team, same quality, every single week.",
     name: "Marcus Lee",
     role: "Head of Ops, Backbone Labs",
-    avatar: "https://placehold.co/200x200/0F172A/FFFFFF?text=ML",
+    avatar: "/team/jovan.webp",
   },
   {
     quote:
-      "Finally, a partner who doesn’t ghost us mid-sprint. Same team, same quality, every single week.",
+      "We replaced three agencies and a revolving door of freelancers. Output doubled. Bill shrank.",
     name: "Jamie Carter",
     role: "Marketing Director, Orbit Co.",
-    avatar: "https://placehold.co/200x200/F97316/FFFFFF?text=JC",
+    avatar: "/team/gabriela.webp",
   },
 ];
 
-export default function Testimonials() {
-  return (
-    <section className="bg-brand-soft py-20 sm:py-28">
-      <div className="container-px">
-        <div className="mx-auto max-w-3xl text-center">
-          <span className="eyebrow">Social Proof</span>
-          <h2 className="section-title mt-4">
-            They Tried Freelancers, Agencies, and Upwork First. Then They Found Us.
-          </h2>
-        </div>
+const MARQUEE_ITEMS = [
+  "$30K/month added revenue after freeing 16 hrs/week - Zach S., Convert on Command",
+  "$20K/month saved vs. previous vendors - Gaynor C., Senior Living Spec.",
+  "Cut hiring time by 80% - Mia R., Bright Funnels",
+  "Doubled creative output in 2 weeks - Daniel P., Orbit Studio",
+  "Recovered 25 hrs/week of leadership time - Ana K., StackForge",
+];
 
-        <div className="mt-14 columns-1 gap-6 md:columns-2 lg:columns-2 [&>*]:mb-6">
-          {TESTIMONIALS.map((t) => (
-            <figure
-              key={t.name}
-              className="break-inside-avoid rounded-2xl border border-slate-200 bg-white p-7 shadow-soft"
+export default function Testimonials() {
+  const [active, setActive] = useState(1);
+  const total = TESTIMONIALS.length;
+
+  const go = (delta: number) => {
+    setActive((prev) => (prev + delta + total) % total);
+  };
+
+  // 3 visible cards: prev, active, next
+  const prev = (active - 1 + total) % total;
+  const next = (active + 1) % total;
+
+  return (
+    <section id="testimonials" className="relative bg-white">
+      {/* Top section: heading + group photo */}
+      <div className="container-px pt-20 pb-12 sm:pt-24 lg:pt-28">
+        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
+          <h2 className="text-4xl font-black tracking-tight text-brand sm:text-5xl lg:text-[3.75rem] lg:leading-[1.05]">
+            They Tried Freelancers, Agencies, and Upwork First.{" "}
+            <span className="text-brand-pink">Then They Found Us</span>
+          </h2>
+          <div className="relative overflow-hidden rounded-[28px] ring-1 ring-pink-200/70 shadow-soft">
+            {/* Group photo placeholder - tinted gradient with team illustration */}
+            <div className="aspect-[16/10] w-full bg-gradient-to-br from-[#0B1A3A] via-[#1B1448] to-[#5B30D6]">
+              <Image
+                src="/values/team-illustration.webp"
+                alt="DeskTeam360 in-house team"
+                width={1224}
+                height={1224}
+                className="h-full w-full object-cover opacity-90"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Carousel */}
+      <div className="relative bg-gradient-to-b from-white to-[#F7F4FF] pb-12">
+        <div className="container-px">
+          <div className="grid grid-cols-1 items-stretch gap-5 md:grid-cols-3">
+            {[prev, active, next].map((idx, slot) => {
+              const t = TESTIMONIALS[idx];
+              const isActive = slot === 1;
+              return (
+                <figure
+                  key={`${idx}-${slot}`}
+                  className={`relative flex flex-col gap-5 rounded-2xl bg-white p-6 ring-1 ring-slate-200/70 transition-all duration-300 sm:flex-row sm:items-start sm:p-7 ${
+                    isActive ? "shadow-soft scale-[1.02]" : "opacity-70"
+                  }`}
+                >
+                  <div className="absolute right-5 top-5 text-slate-200">
+                    <Quote className="h-7 w-7" />
+                  </div>
+                  <div className="relative h-28 w-28 shrink-0 overflow-hidden rounded-2xl bg-slate-200 sm:h-32 sm:w-32">
+                    <Image
+                      src={t.avatar}
+                      alt={t.name}
+                      fill
+                      sizes="128px"
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="flex flex-1 flex-col justify-center">
+                    <blockquote className="text-[14px] leading-[1.55] text-slate-700">
+                      {t.quote}
+                    </blockquote>
+                    <figcaption className="mt-4 text-sm font-bold text-brand">
+                      {t.name},{" "}
+                      <span className="font-semibold text-slate-500">{t.role}</span>
+                    </figcaption>
+                  </div>
+                </figure>
+              );
+            })}
+          </div>
+
+          {/* Carousel controls */}
+          <div className="mt-8 flex items-center justify-center gap-3">
+            <button
+              type="button"
+              onClick={() => go(-1)}
+              aria-label="Previous testimonial"
+              className="grid h-10 w-10 place-items-center rounded-full bg-white text-slate-500 ring-1 ring-slate-200 transition hover:bg-slate-50 hover:text-brand"
             >
-              <Quote className="h-6 w-6 text-brand-accent" />
-              <blockquote className="mt-4 text-base leading-relaxed text-slate-700">
-                {`“${t.quote}”`}
-              </blockquote>
-              <figcaption className="mt-6 flex items-center gap-3">
-                <Image
-                  src={t.avatar}
-                  alt={t.name}
-                  width={44}
-                  height={44}
-                  className="h-11 w-11 rounded-full object-cover"
-                />
-                <div>
-                  <div className="text-sm font-semibold text-brand">{t.name}</div>
-                  <div className="text-xs text-slate-500">{t.role}</div>
-                </div>
-                <div className="ml-auto flex items-center gap-0.5 text-brand-accent">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="h-3.5 w-3.5 fill-current" />
-                  ))}
-                </div>
-              </figcaption>
-            </figure>
+              <ChevronLeft className="h-5 w-5" />
+            </button>
+            <button
+              type="button"
+              onClick={() => go(1)}
+              aria-label="Next testimonial"
+              className="grid h-10 w-10 place-items-center rounded-full bg-brand-pink text-white shadow-md transition hover:scale-105"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Pink marquee bar */}
+      <div className="relative overflow-hidden bg-gradient-to-r from-[#EC2179] via-[#FF3D8A] to-[#EC2179] py-4">
+        <div className="flex animate-marquee whitespace-nowrap">
+          {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((item, i) => (
+            <span
+              key={i}
+              className="mx-8 inline-flex items-center gap-3 text-sm font-medium text-white sm:text-[15px]"
+            >
+              <span className="opacity-90">{renderMarquee(item)}</span>
+              <span aria-hidden className="text-white/60">•</span>
+            </span>
           ))}
         </div>
       </div>
     </section>
   );
+}
+
+function renderMarquee(line: string) {
+  // bold the leading $X/$Xk portion if present
+  const match = line.match(/^(\$[^\s]+(?:\/[^\s]+)?)\s+(.*)$/);
+  if (match) {
+    return (
+      <>
+        <strong className="font-extrabold">{match[1]}</strong> {match[2]}
+      </>
+    );
+  }
+  return line;
 }
