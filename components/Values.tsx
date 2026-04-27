@@ -7,32 +7,32 @@ export default function Values() {
       {/* Decorative code icons */}
       <div aria-hidden className="pointer-events-none absolute inset-0 hidden md:block">
         <Image
-          src="/decor/code-icons-large.webp"
+          src="/decor/code-icons-3.webp"
           alt=""
-          width={738}
-          height={586}
-          className="absolute left-[2%] top-16 w-32 opacity-90 lg:w-44"
+          width={272}
+          height={538}
+          className="absolute left-[2%] top-12 w-24 opacity-95 lg:w-36"
         />
         <Image
-          src="/decor/code-icons-small.webp"
+          src="/decor/code-icons-1.webp"
           alt=""
-          width={250}
-          height={168}
-          className="absolute right-[8%] top-10 w-16 opacity-90 lg:w-24"
+          width={443}
+          height={257}
+          className="absolute right-[5%] top-10 w-32 opacity-95 lg:w-44"
         />
         <Image
-          src="/decor/code-icons-small.webp"
+          src="/decor/code-icons-2.webp"
           alt=""
-          width={250}
-          height={168}
-          className="absolute left-[6%] bottom-24 w-14 opacity-80 lg:w-20"
+          width={365}
+          height={444}
+          className="absolute left-[5%] bottom-20 w-20 opacity-90 lg:w-28"
         />
         <Image
-          src="/decor/code-icons-large.webp"
+          src="/decor/code-icons-1.webp"
           alt=""
-          width={738}
-          height={586}
-          className="absolute right-[3%] bottom-32 w-24 opacity-90 lg:w-32"
+          width={443}
+          height={257}
+          className="absolute right-[3%] bottom-28 w-24 opacity-95 lg:w-32"
         />
       </div>
 
@@ -52,12 +52,11 @@ export default function Values() {
           {/* Row 1: image card + pink redundancy spanning 2 */}
           <article className="relative overflow-hidden rounded-3xl bg-[#0F2148] md:row-span-1">
             <Image
-              src="https://placehold.co/720x520/0F2148/8A9BD9?text=Team+Working+Together"
-              alt="Team illustration"
-              width={720}
-              height={520}
-              unoptimized
-              className="h-full w-full object-cover"
+              src="/values/team-illustration.webp"
+              alt="Team working together"
+              width={1224}
+              height={1224}
+              className="h-full w-full object-contain p-4"
             />
           </article>
 
@@ -74,11 +73,10 @@ export default function Values() {
             </div>
             <div className="absolute right-0 top-0 h-full w-[55%]">
               <Image
-                src="https://placehold.co/620x420/FF3D8A/FFFFFF?text=Devices+%26+Code"
+                src="/values/devices-pink.webp"
                 alt=""
-                width={620}
-                height={420}
-                unoptimized
+                width={1820}
+                height={904}
                 className="h-full w-full object-cover object-center"
               />
             </div>
@@ -142,11 +140,10 @@ export default function Values() {
             </div>
             <div className="absolute right-0 bottom-0 h-full w-[48%]">
               <Image
-                src="https://placehold.co/520x420/FF8B3D/FFFFFF?text=Account+Manager"
+                src="/values/account-manager.webp"
                 alt=""
-                width={520}
-                height={420}
-                unoptimized
+                width={1576}
+                height={1320}
                 className="h-full w-full object-cover object-bottom"
               />
             </div>

@@ -5,7 +5,7 @@ type Pain = {
   body: string;
   cardClass: string;
   ringClass: string;
-  yShiftClass: string;
+  positionClass: string;
   smallImage: string;
   popupImage: string;
 };
@@ -16,7 +16,7 @@ const PAINS: Pain[] = [
     body: "Every new project means a new search. New portfolios. New \"getting to know your brand\" conversations. New prayers that this one won't ghost you mid-project. And the cost keeps climbing - $75, $100, $150 an hour - with zero guarantee they'll be available next month.",
     cardClass: "bg-[#7857FF]",
     ringClass: "ring-[#C7B7FF]",
-    yShiftClass: "md:translate-y-10",
+    positionClass: "md:translate-x-12 md:translate-y-10 md:z-10",
     smallImage: "/pain/freelancer-small.webp",
     popupImage: "/pain/freelancer-popup.webp",
   },
@@ -25,7 +25,7 @@ const PAINS: Pain[] = [
     body: "Your graphic designer bills hourly. Your web developer charges \"project management\" on top of dev time. Your video editor has a revision surcharge. Every task feels like opening your wallet and hoping for the best.",
     cardClass: "bg-[#F16FA8]",
     ringClass: "ring-[#FBD0E2]",
-    yShiftClass: "md:-translate-y-4",
+    positionClass: "md:-translate-y-4 md:scale-[1.05] md:z-20",
     smallImage: "/pain/invoices-small.webp",
     popupImage: "/pain/invoices-popup.webp",
   },
@@ -34,7 +34,7 @@ const PAINS: Pain[] = [
     body: "One person handles graphics. Another does web updates. A third builds funnels. Someone else edits video. They've never spoken to each other. And you're the human glue - the project manager you never signed up to be.",
     cardClass: "bg-[#FF8855]",
     ringClass: "ring-[#FFD0B6]",
-    yShiftClass: "md:translate-y-10",
+    positionClass: "md:-translate-x-12 md:translate-y-10 md:z-10",
     smallImage: "/pain/vendors-small.webp",
     popupImage: "/pain/vendors-popup.webp",
   },
@@ -59,18 +59,18 @@ export default function PainPoints() {
           className="absolute right-[2%] top-24 w-[10rem] opacity-80 lg:w-[14rem]"
         />
         <Image
-          src="/decor/code-icons-large.webp"
+          src="/decor/code-icons-2.webp"
           alt=""
-          width={738}
-          height={586}
-          className="absolute left-[6%] top-2 w-44 opacity-95 lg:w-56"
+          width={365}
+          height={444}
+          className="absolute left-[5%] top-2 w-32 opacity-95 lg:w-44"
         />
         <Image
-          src="/decor/code-icons-small.webp"
+          src="/decor/code-icons-1.webp"
           alt=""
-          width={250}
-          height={168}
-          className="absolute right-[12%] top-44 w-20 opacity-95 lg:w-28"
+          width={443}
+          height={257}
+          className="absolute right-[8%] top-32 w-28 opacity-95 lg:w-36"
         />
       </div>
 
@@ -106,7 +106,7 @@ export default function PainPoints() {
           </video>
         </div>
 
-        <div className="mx-auto -mt-6 grid max-w-[1360px] gap-6 md:grid-cols-3 md:items-start md:gap-7 lg:gap-9">
+        <div className="mx-auto -mt-6 grid max-w-[1360px] gap-6 md:grid-cols-3 md:items-start md:gap-0">
           {PAINS.map((pain) => (
             <PainCard key={pain.title} pain={pain} />
           ))}
@@ -119,7 +119,7 @@ export default function PainPoints() {
 function PainCard({ pain }: { pain: Pain }) {
   return (
     <article
-      className={`group relative aspect-[3/4] overflow-hidden rounded-[36px] p-7 text-white shadow-[0_30px_70px_rgba(15,23,42,0.18)] ring-[6px] ring-inset transition-all duration-500 ease-out hover:z-10 hover:-translate-y-3 hover:scale-[1.06] sm:aspect-[3/4.1] sm:p-8 ${pain.cardClass} ${pain.ringClass} ${pain.yShiftClass}`}
+      className={`group relative aspect-[3/4] overflow-hidden rounded-[36px] p-7 text-white shadow-[0_30px_70px_rgba(15,23,42,0.22)] ring-[6px] ring-inset transition-all duration-500 ease-out hover:z-30 hover:-translate-y-3 hover:scale-[1.07] sm:aspect-[3/4.1] sm:p-8 ${pain.cardClass} ${pain.ringClass} ${pain.positionClass}`}
     >
       <div className="relative z-10 max-w-[64%]">
         <h3 className="text-[1.7rem] font-black leading-[0.98] tracking-[-0.025em] sm:text-[1.95rem] lg:text-[2.15rem]">
