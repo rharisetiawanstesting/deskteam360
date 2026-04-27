@@ -1,24 +1,25 @@
 "use client";
 
 import { ChevronLeft, ChevronRight, User } from "lucide-react";
+import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 type Member = {
   name: string;
   role: string;
-  bg: string;
-  shape: string;
+  photo?: string;
+  bg?: string;
 };
 
 const MEMBERS: Member[] = [
-  { name: "Anna", role: "Designer", bg: "bg-amber-400", shape: "bg-amber-500/70" },
-  { name: "Jovan", role: "AMA", bg: "bg-orange-500", shape: "bg-orange-400/80" },
-  { name: "Dhea", role: "Developer", bg: "bg-purple-500", shape: "bg-purple-400/70" },
-  { name: "Lex", role: "Account Manager", bg: "bg-orange-500", shape: "bg-orange-400/80" },
-  { name: "Gabriela", role: "Developer", bg: "bg-amber-400", shape: "bg-amber-500/70" },
-  { name: "Marco", role: "Video Editor", bg: "bg-pink-500", shape: "bg-pink-400/80" },
-  { name: "Tara", role: "Copywriter", bg: "bg-emerald-500", shape: "bg-emerald-400/80" },
-  { name: "Rio", role: "Automation", bg: "bg-sky-500", shape: "bg-sky-400/80" },
+  { name: "Jovan", role: "AMA", photo: "/team/jovan.webp" },
+  { name: "Dhea", role: "Developer", photo: "/team/dhea.webp" },
+  { name: "Lex", role: "Account Manager", photo: "/team/lex.webp" },
+  { name: "Gabriela", role: "Developer", photo: "/team/gabriela.webp" },
+  { name: "Imelda", role: "Designer", photo: "/team/imelda.webp" },
+  { name: "Marco", role: "Video Editor", bg: "bg-pink-500" },
+  { name: "Tara", role: "Copywriter", bg: "bg-emerald-500" },
+  { name: "Rio", role: "Automation", bg: "bg-sky-500" },
 ];
 
 export default function TeamMember() {
@@ -84,10 +85,10 @@ export default function TeamMember() {
 
         <div
           ref={trackRef}
-          className="flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth px-6 pb-4 lg:px-12 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          className="flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth px-6 pb-4 lg:px-16 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
-          {MEMBERS.map((m, i) => (
-            <Card key={i} member={m} />
+          {MEMBERS.map((m) => (
+            <Card key={m.name} member={m} />
           ))}
         </div>
       </div>
@@ -99,24 +100,24 @@ function Card({ member }: { member: Member }) {
   return (
     <div
       data-card
-      className="relative aspect-[3/4] w-[260px] shrink-0 snap-start overflow-hidden rounded-2xl shadow-soft sm:w-[280px]"
+      className="group relative aspect-[3/4] w-[260px] shrink-0 snap-start overflow-hidden rounded-2xl shadow-soft transition-transform duration-300 ease-out hover:-translate-y-1 sm:w-[280px]"
     >
-      <div className={`absolute inset-0 ${member.bg}`} />
-      <div
-        className={`absolute -right-16 top-1/3 h-72 w-72 rotate-12 ${member.shape}`}
-        style={{ clipPath: "polygon(0 0, 100% 50%, 0 100%)" }}
-        aria-hidden
-      />
-      <div
-        className={`absolute -left-10 bottom-0 h-44 w-44 -rotate-12 ${member.shape}`}
-        style={{ clipPath: "polygon(0 0, 100% 0, 50% 100%)" }}
-        aria-hidden
-      />
-      <div className="absolute inset-0 grid place-items-end justify-center pb-16">
-        <div className="grid h-44 w-32 place-items-center rounded-2xl bg-white/15 backdrop-blur-sm">
-          <User className="h-20 w-20 text-white/90" />
-        </div>
-      </div>
+      {member.photo ? (
+        <Image
+          src={member.photo}
+          alt={`${member.name}, ${member.role}`}
+          fill
+          className="object-cover"
+          sizes="(min-width: 640px) 280px, 260px"
+        />
+      ) : (
+        <>
+          <div className={`absolute inset-0 ${member.bg ?? "bg-slate-300"}`} />
+          <div className="absolute inset-0 grid place-items-center">
+            <User className="h-24 w-24 text-white/80" />
+          </div>
+        </>
+      )}
       <div className="absolute bottom-3 left-3 right-3">
         <span className="inline-flex items-center rounded-md bg-orange-600/95 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-white shadow-md">
           {member.name} | {member.role}

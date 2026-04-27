@@ -1,9 +1,11 @@
+import Image from "next/image";
+
 const LOGOS = [
-  { name: "Libra Growth Labs", className: "font-medium tracking-tight text-slate-700" },
-  { name: "Charisma", className: "font-['cursive'] italic text-2xl text-pink-500" },
-  { name: "Hot Tape Marketing", className: "font-black uppercase tracking-tight text-slate-800" },
-  { name: "Convert on Command", className: "font-bold uppercase tracking-tight text-slate-800" },
-  { name: "Special Ed Resource", className: "font-bold uppercase tracking-tight text-emerald-600" },
+  { name: "Libra Growth Labs", src: "/trust/libra-growth.webp", w: 380, h: 100 },
+  { name: "Charisma", src: "/trust/charisma.webp", w: 360, h: 180 },
+  { name: "Duct Tape Marketing", src: "/trust/duct-tape-marketing.webp", w: 340, h: 130 },
+  { name: "Convert on Command", src: "/trust/convert-on-command.webp", w: 380, h: 130 },
+  { name: "Special Ed Resource", src: "/trust/special-ed.webp", w: 340, h: 200 },
 ];
 
 export default function TrustBar() {
@@ -18,13 +20,19 @@ export default function TrustBar() {
           </span>{" "}
           to handle the work they don&apos;t have time for.
         </p>
-        <div className="mt-10 grid grid-cols-2 items-center gap-8 sm:grid-cols-3 md:grid-cols-5">
+        <div className="mt-10 grid grid-cols-2 items-center justify-items-center gap-8 sm:grid-cols-3 md:grid-cols-5">
           {LOGOS.map((logo) => (
             <div
               key={logo.name}
-              className="grid h-12 place-items-center text-center opacity-80 grayscale-[25%] transition hover:opacity-100 hover:grayscale-0"
+              className="relative grid h-16 w-full max-w-[180px] place-items-center opacity-80 grayscale-[15%] transition hover:opacity-100 hover:grayscale-0"
             >
-              <span className={`text-sm sm:text-base ${logo.className}`}>{logo.name}</span>
+              <Image
+                src={logo.src}
+                alt={logo.name}
+                width={logo.w}
+                height={logo.h}
+                className="h-auto max-h-14 w-auto max-w-full object-contain"
+              />
             </div>
           ))}
         </div>

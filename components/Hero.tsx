@@ -53,9 +53,9 @@ export default function Hero() {
 
       <div className="container-px grid items-center gap-10 pb-12 pt-12 lg:grid-cols-12 lg:gap-6 lg:pb-24 lg:pt-16">
         <div className="lg:col-span-6">
-          <h1 className="font-black tracking-[-0.02em] text-white text-[3.5rem] leading-[0.95] sm:text-[4.5rem] lg:text-[5rem] xl:text-[6rem] 2xl:text-[6.75rem]">
-            <span className="block">Stop Outsourcing.</span>
-            <span className="block">Start Insourcing.</span>
+          <h1 className="font-black tracking-[-0.02em] text-white leading-[0.98] text-[clamp(2rem,4.4vw,5.25rem)]">
+            <span className="block whitespace-nowrap">Stop Outsourcing.</span>
+            <span className="block whitespace-nowrap">Start Insourcing.</span>
           </h1>
 
           <p className="mt-8 max-w-xl text-base leading-relaxed text-white/75 sm:text-lg">
