@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 
 const LOGOS = [
@@ -9,6 +11,7 @@ const LOGOS = [
 ];
 
 export default function TrustBar() {
+  const loop = [...LOGOS, ...LOGOS];
   return (
     <section className="relative bg-gradient-to-b from-indigo-50 via-sky-50 to-violet-50 py-14">
       <div className="container-px">
@@ -20,21 +23,28 @@ export default function TrustBar() {
           </span>{" "}
           to handle the work they don&apos;t have time for.
         </p>
-        <div className="mt-10 grid grid-cols-2 items-center justify-items-center gap-8 sm:grid-cols-3 md:grid-cols-5">
-          {LOGOS.map((logo) => (
-            <div
-              key={logo.name}
-              className="relative grid h-16 w-full max-w-[180px] place-items-center opacity-80 grayscale-[15%] transition hover:opacity-100 hover:grayscale-0"
-            >
-              <Image
-                src={logo.src}
-                alt={logo.name}
-                width={logo.w}
-                height={logo.h}
-                className="h-auto max-h-14 w-auto max-w-full object-contain"
-              />
-            </div>
-          ))}
+
+        <div
+          className="group/marquee mt-10 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]"
+          aria-label="Trusted by"
+        >
+          <div className="flex w-max items-center gap-16 animate-marquee group-hover/marquee:[animation-play-state:paused] motion-reduce:animate-none">
+            {loop.map((logo, i) => (
+              <div
+                key={`${logo.name}-${i}`}
+                className="group/logo grid h-16 w-[180px] shrink-0 place-items-center opacity-80 grayscale-[15%] transition-all duration-300 ease-out hover:scale-125 hover:opacity-100 hover:grayscale-0"
+                aria-hidden={i >= LOGOS.length}
+              >
+                <Image
+                  src={logo.src}
+                  alt={i < LOGOS.length ? logo.name : ""}
+                  width={logo.w}
+                  height={logo.h}
+                  className="h-auto max-h-14 w-auto max-w-full object-contain"
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
