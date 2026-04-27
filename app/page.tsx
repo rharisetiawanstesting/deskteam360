@@ -1,5 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import TeamMember from "@/components/TeamMember";
+import TrustBar from "@/components/TrustBar";
 import PainPoints from "@/components/PainPoints";
 import Values from "@/components/Values";
 import Services from "@/components/Services";
@@ -15,6 +17,8 @@ export default function HomePage() {
     <main className="min-h-screen bg-white">
       <Navbar />
       <Hero />
+      <TeamMember />
+      <TrustBar />
       <PainPoints />
       <Values />
       <Services />
