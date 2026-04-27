@@ -7,31 +7,31 @@ export default function Values() {
       {/* Decorative code icons */}
       <div aria-hidden className="pointer-events-none absolute inset-0 hidden md:block">
         <Image
-          src="/decor/code-icons-3.webp"
+          src="/decor/code-icons-small.webp"
           alt=""
-          width={272}
-          height={538}
-          className="absolute left-[2%] top-12 w-24 opacity-95 lg:w-36"
+          width={233}
+          height={222}
+          className="absolute left-[2%] top-12 w-24 opacity-90 lg:w-32"
         />
         <Image
-          src="/decor/code-icons-1.webp"
+          src="/decor/code-icons-large.webp"
           alt=""
-          width={443}
-          height={257}
-          className="absolute right-[5%] top-10 w-32 opacity-95 lg:w-44"
+          width={726}
+          height={562}
+          className="absolute right-[3%] top-8 w-44 opacity-95 lg:w-60"
         />
         <Image
-          src="/decor/code-icons-2.webp"
+          src="/decor/code-icons-large.webp"
           alt=""
-          width={365}
-          height={444}
-          className="absolute left-[5%] bottom-20 w-20 opacity-90 lg:w-28"
+          width={726}
+          height={562}
+          className="absolute left-[2%] bottom-16 w-36 opacity-90 lg:w-48"
         />
         <Image
-          src="/decor/code-icons-1.webp"
+          src="/decor/code-icons-small.webp"
           alt=""
-          width={443}
-          height={257}
+          width={233}
+          height={222}
           className="absolute right-[3%] bottom-28 w-24 opacity-95 lg:w-32"
         />
       </div>
