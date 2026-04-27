@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Sun, Moon, ChevronRight } from "lucide-react";
+import Reveal from "./Reveal";
 
 export default function Values() {
   return (
@@ -37,7 +38,7 @@ export default function Values() {
       </div>
 
       <div className="container-px relative">
-        <div className="mx-auto max-w-4xl text-center">
+        <Reveal className="mx-auto max-w-4xl text-center">
           <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-[3rem] lg:leading-[1.05]">
             Outsourcing Is Broken<br className="hidden sm:block" /> We Built Something Better
           </h2>
@@ -46,28 +47,20 @@ export default function Values() {
             different time zones. Ours aren&apos;t. We brought our team in-house - into one
             office, under one roof, with real infrastructure and real accountability.
           </p>
-        </div>
+        </Reveal>
 
         <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-3 md:auto-rows-[minmax(220px,auto)] lg:gap-6">
-          {/* col 1, rows 1-2: Insourcing - tall card with illustration on top */}
-          <article className="group relative flex flex-col overflow-hidden rounded-3xl bg-[#0F2148] p-7 text-white transition-transform duration-300 ease-out hover:-translate-y-1 hover:scale-[1.01] sm:p-8 md:row-span-2">
-            <div className="relative -mx-2 -mt-2 flex h-44 items-center justify-center sm:h-56 lg:h-72">
+          {/* row 1, col 1: pure image tile (team illustration) */}
+          <article className="group relative overflow-hidden rounded-3xl bg-[#0F2148] p-5 text-white transition-transform duration-300 ease-out hover:-translate-y-1 hover:scale-[1.01]">
+            <div className="relative flex h-full min-h-[200px] items-center justify-center">
               <Image
                 src="/values/team-illustration.webp"
                 alt=""
                 width={1224}
                 height={1224}
-                className="h-full w-auto object-contain transition-transform duration-500 ease-out group-hover:scale-105"
+                className="h-full max-h-[260px] w-auto object-contain transition-transform duration-500 ease-out group-hover:scale-105"
               />
             </div>
-            <h3 className="mt-4 text-xl font-black tracking-tight sm:text-[1.4rem]">
-              Insourcing, Not Outsourcing
-            </h3>
-            <p className="mt-3 text-[13px] leading-[1.6] text-white/75 sm:text-sm">
-              We eliminated the frustrations of traditional outsourcing by bringing
-              everything in-house. Your work is done by a real team in a real office - with
-              the infrastructure and accountability to back it up.
-            </p>
           </article>
 
           {/* row 1, cols 2-3: Pink Built-In Redundancy */}
@@ -92,6 +85,18 @@ export default function Values() {
                 className="h-full w-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-105"
               />
             </div>
+          </article>
+
+          {/* row 2, col 1: Insourcing (text-only dark card) */}
+          <article className="group relative overflow-hidden rounded-3xl bg-[#0F2148] p-7 text-white transition-transform duration-300 ease-out hover:-translate-y-1 hover:scale-[1.01] sm:p-8">
+            <h3 className="text-xl font-black tracking-tight sm:text-[1.4rem]">
+              Insourcing, Not Outsourcing
+            </h3>
+            <p className="mt-3 text-[13px] leading-[1.6] text-white/75 sm:text-sm">
+              We eliminated the frustrations of traditional outsourcing by bringing
+              everything in-house. Your work is done by a real team in a real office - with
+              the infrastructure and accountability to back it up.
+            </p>
           </article>
 
           {/* row 2, col 2: One Office */}

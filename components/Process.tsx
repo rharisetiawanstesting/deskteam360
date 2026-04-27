@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Reveal from "./Reveal";
 
 const STEPS = [
   {
@@ -43,22 +44,22 @@ export default function Process() {
       </div>
 
       <div className="container-px relative">
-        <div className="mx-auto max-w-3xl text-center">
+        <Reveal className="mx-auto max-w-3xl text-center">
           <h2 className="text-3xl font-black tracking-tight text-white sm:text-4xl lg:text-[3rem] lg:leading-[1.05]">
             Three Steps. No Meetings.<br className="hidden sm:block" /> No Micromanaging
           </h2>
-        </div>
+        </Reveal>
 
-        <div className="mt-14 grid items-center gap-12 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
-          {/* Left: ribbon constellation around centered woman illustration */}
-          <div className="relative mx-auto h-[560px] w-full max-w-[600px] sm:h-[640px]">
-            {/* Purple ribbon - top, slightly right of center */}
+        <div className="mt-14 grid items-center gap-12 lg:grid-cols-[1fr_1fr] lg:gap-16">
+          {/* Left: woman in the center, ribbons clustered tightly around her (figma-accurate) */}
+          <div className="relative mx-auto aspect-square w-full max-w-[520px]">
+            {/* Purple ribbon - upper right of woman */}
             <Image
               src="/process/ribbon-purple-bulb.png"
               alt=""
               width={857}
               height={822}
-              className="absolute left-[28%] top-[2%] z-10 w-[46%] drop-shadow-[0_18px_30px_rgba(126,91,255,0.25)]"
+              className="absolute left-[26%] top-[4%] z-10 w-[58%] drop-shadow-[0_18px_30px_rgba(126,91,255,0.3)] motion-safe:animate-[ribbon-float_7s_ease-in-out_infinite]"
             />
             {/* Orange ribbon - middle right */}
             <Image
@@ -66,25 +67,25 @@ export default function Process() {
               alt=""
               width={682}
               height={989}
-              className="absolute right-[2%] top-[34%] z-10 w-[40%] drop-shadow-[0_18px_30px_rgba(255,106,61,0.25)]"
+              className="absolute right-[4%] top-[28%] z-10 w-[42%] drop-shadow-[0_18px_30px_rgba(255,106,61,0.3)] motion-safe:animate-[ribbon-float_8s_ease-in-out_-2s_infinite]"
             />
-            {/* Pink ribbon - bottom, slightly left of center */}
+            {/* Pink ribbon - bottom center, slightly left */}
             <Image
               src="/process/ribbon-pink-calendar.png"
               alt=""
               width={857}
               height={783}
-              className="absolute bottom-[2%] left-[24%] z-10 w-[46%] drop-shadow-[0_18px_30px_rgba(236,33,121,0.25)]"
+              className="absolute bottom-[2%] left-[22%] z-10 w-[54%] drop-shadow-[0_18px_30px_rgba(236,33,121,0.3)] motion-safe:animate-[ribbon-float_7s_ease-in-out_-4s_infinite]"
             />
 
-            {/* Woman illustration - centered focal point on the left */}
-            <div className="absolute left-[-2%] top-1/2 z-20 w-[40%] -translate-y-1/2">
+            {/* Woman illustration - dead-center focal point */}
+            <div className="absolute left-1/2 top-1/2 z-20 w-[44%] -translate-x-[58%] -translate-y-[42%]">
               <Image
                 src="/process/woman-laptop.png"
                 alt="Designer working on laptop"
                 width={826}
                 height={802}
-                className="h-auto w-full drop-shadow-[0_22px_36px_rgba(0,0,0,0.45)]"
+                className="h-auto w-full drop-shadow-[0_22px_36px_rgba(0,0,0,0.5)]"
                 priority
               />
             </div>

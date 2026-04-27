@@ -3,8 +3,15 @@ import { ShieldCheck } from "lucide-react";
 
 export default function Guarantee() {
   return (
-    <section className="relative bg-white">
-      {/* Torn paper PNG background spans the full section. Content sits on top. */}
+    <section
+      className="relative"
+      // Split background: white above the torn paper (matches Pricing),
+      // dark navy below it (matches FAQ). Hard 50/50 stop so the
+      // PNG's transparent corners blend with the right sibling section.
+      style={{
+        background: "linear-gradient(to bottom, #ffffff 0 50%, #0B1A3A 50% 100%)",
+      }}
+    >
       <div className="relative w-full">
         <Image
           src="/decor/torn-paper-purple.png"
@@ -15,17 +22,16 @@ export default function Guarantee() {
           className="pointer-events-none absolute inset-0 h-full w-full select-none object-fill"
         />
 
-        {/* Content. Padding clears the torn edges (~60-80px on each side). */}
-        <div className="container-px relative py-24 sm:py-28 lg:py-32">
-          <div className="grid items-center gap-8 lg:grid-cols-[auto_1.4fr_1fr] lg:gap-10">
-            <div className="grid h-20 w-20 place-items-center rounded-2xl bg-white/15 ring-1 ring-white/25 backdrop-blur sm:h-24 sm:w-24">
-              <ShieldCheck className="h-10 w-10 text-white sm:h-12 sm:w-12" strokeWidth={2.2} />
+        <div className="container-px relative py-20 sm:py-24 lg:py-24">
+          <div className="grid items-center gap-6 sm:grid-cols-[auto_1.6fr_1.2fr] sm:gap-8 lg:gap-12">
+            <div className="grid h-16 w-16 place-items-center rounded-2xl bg-white/15 ring-1 ring-white/25 backdrop-blur motion-safe:animate-soft-bob sm:h-20 sm:w-20">
+              <ShieldCheck className="h-9 w-9 text-white sm:h-10 sm:w-10" strokeWidth={2.2} />
             </div>
-            <h3 className="text-3xl font-black tracking-tight text-white sm:text-4xl lg:text-[2.75rem] lg:leading-[1.05]">
+            <h3 className="text-3xl font-black tracking-tight text-white sm:text-4xl lg:text-[2.5rem] lg:leading-[1.05]">
               Try It <span className="font-black">Risk-Free</span>
               <br className="hidden sm:block" /> for 30 Days
             </h3>
-            <p className="text-[14px] leading-relaxed text-white/90 sm:text-[15px]">
+            <p className="text-[13.5px] leading-relaxed text-white/90 sm:text-[14.5px]">
               Not the right fit? Full refund within the first 30 days. No awkward conversations.
               No cancellation hoops. No contracts - ever. Cancel any month, for any reason.
               We&apos;ve been at this since 2018. We don&apos;t need lock-in contracts to keep

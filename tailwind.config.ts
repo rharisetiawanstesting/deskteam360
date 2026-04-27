@@ -39,10 +39,25 @@ const config: Config = {
           from: { transform: "translate3d(0,0,0)" },
           to: { transform: "translate3d(-50%,0,0)" },
         },
+        "ribbon-float": {
+          "0%, 100%": { transform: "translate3d(0,-6px,0)" },
+          "50%": { transform: "translate3d(0,6px,0)" },
+        },
+        "fade-up": {
+          "0%": { opacity: "0", transform: "translate3d(0,24px,0)" },
+          "100%": { opacity: "1", transform: "translate3d(0,0,0)" },
+        },
+        "soft-bob": {
+          "0%, 100%": { transform: "translate3d(0,-8px,0)" },
+          "50%": { transform: "translate3d(0,8px,0)" },
+        },
       },
       animation: {
         "hero-float": "hero-float 6s ease-in-out infinite",
         marquee: "marquee 28s linear infinite",
+        "ribbon-float": "ribbon-float 7s ease-in-out infinite",
+        "fade-up": "fade-up 0.7s ease-out both",
+        "soft-bob": "soft-bob 5s ease-in-out infinite",
       },
     },
   },
